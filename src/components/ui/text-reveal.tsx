@@ -52,14 +52,19 @@ export function TextReveal({
       const words = el.querySelectorAll<HTMLElement>("[data-word]");
 
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        gsap.from(words, {
-          yPercent: 115,
-          duration: 1,
-          ease: "expo.out",
-          stagger,
-          delay,
-          scrollTrigger: { trigger: el, start },
-        });
+        // fromTo, not from — see the note in reveal.tsx.
+        gsap.fromTo(
+          words,
+          { yPercent: 115 },
+          {
+            yPercent: 0,
+            duration: 1,
+            ease: "expo.out",
+            stagger,
+            delay,
+            scrollTrigger: { trigger: el, start },
+          },
+        );
       });
       mm.add("(prefers-reduced-motion: reduce)", () => {
         gsap.set(words, { yPercent: 0 });

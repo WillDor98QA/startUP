@@ -32,6 +32,7 @@ import {
 /*  Trust                                                             */
 /* ------------------------------------------------------------------ */
 export const CLIENTS = [
+  "Cosy Aura",
   "Brightleaf Retail",
   "Vero Clinics",
   "Harbour Insurance",
@@ -264,76 +265,32 @@ export type CaseStudy = {
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
-    slug: "brightleaf-retail",
-    client: "Brightleaf Retail",
-    industry: "Retail",
-    title: "From 40 spreadsheets to one live operations platform",
-    metric: "12 hrs",
-    metricLabel: "Saved per week",
+    slug: "cosy-aura",
+    client: "Cosy Aura",
+    industry: "Retail · E-commerce",
+    title: "Taking a fragrance retailer from chat orders to a full online store",
+    metric: "24 hrs",
+    metricLabel: "Order to delivery",
     summary:
-      "A 9-store retailer ran inventory, staff rotas, and ordering across dozens of spreadsheets and a busy WhatsApp group.",
+      "Cosy Aura sells designer and niche fragrances across Ghana. Orders arrived through DMs and WhatsApp chats, with stock, payments, and deliveries tracked by hand.",
     before:
-      "Stock counts were emailed nightly, re-keyed by head office, and often wrong by morning. Reordering was guesswork.",
-    pains: ["Daily double data-entry", "Frequent stockouts", "No view across stores"],
+      "Every sale meant a back-and-forth chat — confirming stock, arranging delivery, taking payment on trust. Popular scents sold out silently and there was no record of who ordered what.",
+    pains: [
+      "Orders buried in DMs and chat threads",
+      "No live stock view or order history",
+      "Deliveries coordinated by hand, one at a time",
+    ],
     solution:
-      "We built a single retail operations platform with live stock, automated reordering, and a mobile app for store managers.",
-    tech: ["Custom Software", "Mobile App", "Dashboards", "Integration"],
+      "We shaped the Cosy Aura brand and built a complete e-commerce store — a searchable catalog organised by scent family and occasion, express checkout with cash-on-delivery, WhatsApp ordering for chat-first customers, and an order-tracking and delivery workflow for nationwide fulfilment.",
+    tech: ["E-commerce", "Branding", "Order Tracking", "Delivery Ops"],
     results: [
-      { value: "12 hrs", label: "Saved weekly" },
-      { value: "−64%", label: "Stockouts" },
-      { value: "9", label: "Stores unified" },
+      { value: "24 hrs", label: "Order to delivery" },
+      { value: "16", label: "Regions served" },
+      { value: "100%", label: "Orders tracked" },
     ],
     outcome:
-      "Head office now sees every store in real time, and managers reorder in two taps instead of a nightly spreadsheet.",
-    tags: ["Retail", "Operations"],
-  },
-  {
-    slug: "vero-clinics",
-    client: "Vero Clinics",
-    industry: "Healthcare",
-    title: "Replacing paper intake for 30,000 patients",
-    metric: "−70%",
-    metricLabel: "Admin time",
-    summary:
-      "A growing clinic group handled patient intake and follow-ups on paper forms and phone calls.",
-    before:
-      "Front-desk staff re-typed paper forms into three systems; follow-ups slipped through the cracks.",
-    pains: ["Paper forms re-keyed by hand", "Missed follow-ups", "No audit trail"],
-    solution:
-      "We delivered a HIPAA-conscious intake and scheduling system with automated reminders and a unified patient record.",
-    tech: ["Custom Software", "Automation", "Integration"],
-    results: [
-      { value: "−70%", label: "Admin time" },
-      { value: "+38%", label: "Kept appointments" },
-      { value: "0", label: "Lost records" },
-    ],
-    outcome:
-      "Staff spend their time with patients instead of paperwork, and nothing falls through the cracks.",
-    tags: ["Healthcare", "Automation"],
-  },
-  {
-    slug: "northside-build",
-    client: "Northside Build",
-    industry: "Construction",
-    title: "Bringing the job site online for 14 crews",
-    metric: "+31%",
-    metricLabel: "On-time jobs",
-    summary:
-      "A construction firm coordinated 14 crews by phone, paper dockets, and a whiteboard in the office.",
-    before:
-      "Daily progress and material requests came in by call and text, then got transcribed by an office manager each evening.",
-    pains: ["Paper dockets lost on site", "Delayed material orders", "No live job status"],
-    solution:
-      "We built an offline-first mobile app for crews plus a live operations dashboard for the office.",
-    tech: ["Mobile App", "Dashboards", "Automation"],
-    results: [
-      { value: "+31%", label: "On-time jobs" },
-      { value: "−5 days", label: "Order lead time" },
-      { value: "14", label: "Crews connected" },
-    ],
-    outcome:
-      "The office sees every site live, and crews log progress from their phones — even with no signal.",
-    tags: ["Construction", "Mobile"],
+      "Customers browse, order, and track deliveries themselves. Cosy Aura now runs nationwide next-day fulfilment from one system instead of a phone full of chats.",
+    tags: ["Retail", "E-commerce"],
   },
 ];
 
@@ -449,6 +406,12 @@ export const TEAM = [
 ];
 
 export const TESTIMONIALS = [
+  {
+    quote:
+      "Kova took us from taking orders in chats to a store that runs itself — customers order and track deliveries without ever needing to message us.",
+    name: "Cosy Aura",
+    role: "Founder, Cosy Aura",
+  },
   {
     quote:
       "Kova didn't sell us software — they understood our business first. We got back a full day every week and finally see all nine stores in one place.",

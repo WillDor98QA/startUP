@@ -46,19 +46,27 @@ export function Reveal({
 
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         const targets = stagger ? el.querySelectorAll<HTMLElement>(":scope > *") : [el];
-        gsap.from(targets, {
-          y,
-          autoAlpha: 0,
-          duration: 0.9,
-          delay,
-          ease: "expo.out",
-          stagger: stagger ?? 0,
-          scrollTrigger: {
-            trigger: el,
-            start: "top 85%",
-            toggleActions: once ? "play none none none" : "play none none reverse",
+        // fromTo, not from: with from(), GSAP records the element's current
+        // computed style as the end state on first play — if a target carries a
+        // CSS `transition-*` class, the computed values have already drifted to
+        // the hidden from-state by then, and the reveal animates hidden→hidden.
+        gsap.fromTo(
+          targets,
+          { y, autoAlpha: 0 },
+          {
+            y: 0,
+            autoAlpha: 1,
+            duration: 0.9,
+            delay,
+            ease: "expo.out",
+            stagger: stagger ?? 0,
+            scrollTrigger: {
+              trigger: el,
+              start: "top 85%",
+              toggleActions: once ? "play none none none" : "play none none reverse",
+            },
           },
-        });
+        );
       });
 
       mm.add("(prefers-reduced-motion: reduce)", () => {
