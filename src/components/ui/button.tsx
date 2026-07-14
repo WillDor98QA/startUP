@@ -1,6 +1,4 @@
-"use client";
-
-import Link from "next/link";
+import { Link } from "react-router";
 import { useRef, type ReactNode } from "react";
 import { gsap } from "gsap";
 import { ArrowRight } from "lucide-react";
@@ -85,7 +83,7 @@ export function Button({
 
   if (href) {
     return (
-      <Link href={href} {...shared}>
+      <Link to={href} {...shared}>
         {inner}
       </Link>
     );

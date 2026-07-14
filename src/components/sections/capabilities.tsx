@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router";
 import { ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
@@ -27,7 +27,7 @@ export function Capabilities() {
           {SOLUTIONS.map((s) => (
             <Link
               key={s.slug}
-              href={`/solutions#${s.slug}`}
+              to={`/solutions#${s.slug}`}
               data-cursor-hover
               className="group flex flex-col rounded-2xl border border-forest/10 bg-cream p-7 transition-all duration-300 hover:-translate-y-1 hover:border-forest/20 hover:shadow-[0_24px_60px_-30px_rgba(29,49,36,0.35)]"
             >

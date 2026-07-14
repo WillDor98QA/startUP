@@ -1,7 +1,5 @@
-"use client";
-
 import { useEffect, useRef } from "react";
-import { usePathname } from "next/navigation";
+import { useLocation } from "react-router";
 import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -12,7 +10,7 @@ if (typeof window !== "undefined") {
 
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null);
-  const pathname = usePathname();
+  const { pathname } = useLocation();
 
   // Reset scroll on route change (honouring #hash deep-links) and recalc triggers.
   useEffect(() => {

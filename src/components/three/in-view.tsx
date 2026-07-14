@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
 /** Mounts children only while near the viewport (perf: avoids off-screen WebGL work). */

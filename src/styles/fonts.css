@@ -1,0 +1,13 @@
+/* Self-hosted fonts (replaces next/font). The three variables below are the
+   ones next/font used to inject on <html>; globals.css maps them onto
+   --font-serif / --font-sans / --font-mono. */
+@import "@fontsource/instrument-serif/400.css";
+@import "@fontsource/instrument-serif/400-italic.css";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/geist-mono";
+
+:root {
+  --font-instrument: "Instrument Serif";
+  --font-inter: "Inter Variable";
+  --font-mono-geist: "Geist Mono Variable";
+}

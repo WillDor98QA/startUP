@@ -1,10 +1,7 @@
-"use client";
-
 import { useRef } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import Link from "next/link";
+import { Link } from "react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { TextReveal } from "@/components/ui/text-reveal";
@@ -61,7 +58,7 @@ export function Cases() {
         >
           {CASE_STUDIES.map((c) => (
             <Link
-              href={`/projects/${c.slug}`}
+              to={`/projects/${c.slug}`}
               key={c.client}
               data-cursor-hover
               className="group relative flex w-[85vw] shrink-0 flex-col justify-between overflow-hidden rounded-3xl bg-forest-deep p-8 text-cream sm:w-[26rem] sm:p-10"

@@ -1,11 +1,8 @@
-"use client";
-
-import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { useReducedMotion } from "@/lib/hooks";
 import { InView } from "./in-view";
 
-const GlobeField = dynamic(() => import("./globe-field"), { ssr: false });
+const GlobeField = lazy(() => import("./globe-field"));
 
 function GlobeFallback() {
   return (
@@ -27,7 +24,9 @@ export function GlobeScene() {
 
   return (
     <InView className="h-full w-full">
-      <GlobeField />
+      <Suspense fallback={<GlobeFallback />}>
+        <GlobeField />
+      </Suspense>
     </InView>
   );
 }

@@ -1,8 +1,5 @@
-"use client";
-
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, useLocation } from "react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { NAV_LINKS, CTA } from "@/lib/site";
@@ -13,7 +10,7 @@ import { cn } from "@/lib/utils";
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
+  const { pathname } = useLocation();
 
   // These routes open on a dark hero → use light nav until the user scrolls.
   const DARK_HERO_ROUTES = ["/", "/contact", "/industries"];
@@ -46,7 +43,7 @@ export function Navbar() {
         )}
       >
         <nav className="shell flex h-16 items-center justify-between md:h-20">
-          <Link href="/" aria-label={`Home`} className="relative z-10" data-cursor-hover>
+          <Link to="/" aria-label={`Home`} className="relative z-10" data-cursor-hover>
             <Logo dark={overDark} />
           </Link>
 
@@ -56,7 +53,7 @@ export function Navbar() {
               return (
                 <li key={l.href}>
                   <Link
-                    href={l.href}
+                    to={l.href}
                     data-cursor-hover
                     className={cn(
                       "group relative text-sm tracking-tight transition-colors",
@@ -121,7 +118,7 @@ export function Navbar() {
                   transition={{ delay: 0.06 + i * 0.05 }}
                 >
                   <Link
-                    href={l.href}
+                    to={l.href}
                     className="block border-b border-forest/10 py-4 font-serif text-3xl text-forest-deep"
                   >
                     {l.label}

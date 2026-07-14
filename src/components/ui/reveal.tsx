@@ -1,5 +1,3 @@
-"use client";
-
 import { createElement, useRef, type ElementType, type ReactNode } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";

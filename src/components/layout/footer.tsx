@@ -1,8 +1,5 @@
-"use client";
-
-import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
-import Link from "next/link";
+import { lazy, Suspense, useEffect, useState } from "react";
+import { Link } from "react-router";
 import { ArrowUpRight } from "lucide-react";
 import { BRAND } from "@/lib/site";
 import { LinkedInIcon, XIcon, GitHubIcon } from "@/components/ui/brand-icons";
@@ -10,9 +7,7 @@ import { Logo } from "@/components/layout/logo";
 import { InView } from "@/components/three/in-view";
 import { useReducedMotion } from "@/lib/hooks";
 
-const ConstellationField = dynamic(() => import("@/components/three/constellation-field"), {
-  ssr: false,
-});
+const ConstellationField = lazy(() => import("@/components/three/constellation-field"));
 
 const COLUMNS = [
   {
@@ -55,7 +50,9 @@ export function Footer() {
     <footer className="relative overflow-hidden bg-forest-deep text-cream">
       {mounted && !reduced && (
         <InView className="pointer-events-none absolute inset-0 opacity-70">
-          <ConstellationField />
+          <Suspense fallback={null}>
+            <ConstellationField />
+          </Suspense>
         </InView>
       )}
 
@@ -124,7 +121,7 @@ export function Footer() {
                 {col.links.map((l) => (
                   <li key={l.label}>
                     <Link
-                      href={l.href}
+                      to={l.href}
                       className="text-sm text-cream/80 transition-colors hover:text-ember"
                     >
                       {l.label}

@@ -1,7 +1,4 @@
-"use client";
-
-import dynamic from "next/dynamic";
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,7 +6,7 @@ import { STORY_BEATS } from "@/lib/content";
 import { useReducedMotion } from "@/lib/hooks";
 import { InView } from "@/components/three/in-view";
 
-const StoryField = dynamic(() => import("@/components/three/story-field"), { ssr: false });
+const StoryField = lazy(() => import("@/components/three/story-field"));
 
 const HERO_END = 0.13;
 
@@ -85,7 +82,9 @@ export function Story() {
           />
           {mounted && (
             <InView className="absolute inset-0" rootMargin="300px">
-              <StoryField progress={progress} />
+              <Suspense fallback={null}>
+                <StoryField progress={progress} />
+              </Suspense>
             </InView>
           )}
           <div

@@ -1,7 +1,4 @@
-"use client";
-
-import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Mail, MapPin, Phone, ArrowRight, Check, CalendarDays } from "lucide-react";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { TextReveal } from "@/components/ui/text-reveal";
@@ -9,7 +6,7 @@ import { InView } from "@/components/three/in-view";
 import { useReducedMotion } from "@/lib/hooks";
 import { BRAND } from "@/lib/site";
 
-const CoreField = dynamic(() => import("@/components/three/core-field"), { ssr: false });
+const CoreField = lazy(() => import("@/components/three/core-field"));
 
 const NEXT_STEPS = [
   "A 30-minute call to understand how your business runs today.",
@@ -31,7 +28,9 @@ export function Contact() {
       <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 opacity-70">
         {mounted && !reduced ? (
           <InView className="h-full w-full">
-            <CoreField />
+            <Suspense fallback={null}>
+              <CoreField />
+            </Suspense>
           </InView>
         ) : (
           <div className="grid h-full place-items-center">

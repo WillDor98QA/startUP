@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router";
 import { ArrowRight } from "lucide-react";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { TextReveal } from "@/components/ui/text-reveal";
@@ -29,7 +29,7 @@ export function FeaturedCase() {
                 {c.summary} {c.outcome}
               </p>
               <Link
-                href={`/projects/${c.slug}`}
+                to={`/projects/${c.slug}`}
                 data-cursor-hover
                 className="group mt-8 inline-flex items-center gap-2.5 font-medium text-forest-deep"
               >
